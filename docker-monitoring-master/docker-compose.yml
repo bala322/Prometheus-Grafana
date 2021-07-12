@@ -12,11 +12,11 @@ services:
     command:
     - --config.file=/etc/prometheus/prometheus.yml
     volumes:
+    - .:/etc/prometheus:rw
     - ./prometheus.yml:/etc/prometheus/prometheus.yml:rw
     - /usr/local/bin:/usr/local/bin:rw
     - /etc/alertmanager:/etc/alertmanager:rw
     - /etc/systemd/system/alertmanager.service:/etc/systemd/system/alertmanager.service:rw
-    - .:/etc/prometheus
     depends_on:
     - cadvisor
   cadvisor:
